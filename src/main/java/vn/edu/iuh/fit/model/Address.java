@@ -16,15 +16,31 @@ public class Address {
     @Column(name = "add_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(columnDefinition = "smallint(6)")
     private CountryCode country;
+    @Column(columnDefinition = "varchar(50)")
     private String city;
+    @Column(columnDefinition = "varchar(7)")
     private String zipcode;
+    @Column(columnDefinition = "varchar(150)")
     private String street;
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Candidate candidate;
+    @Column(columnDefinition = "varchar(20)")
     private String number;
     @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Company company;
 
+    public Address(long id) {
+        this.id = id;
+    }
 
+    public Address(CountryCode country, String city, String zipcode, String street, String number) {
+        this.country = country;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.street = street;
+        this.number = number;
+    }
 }
