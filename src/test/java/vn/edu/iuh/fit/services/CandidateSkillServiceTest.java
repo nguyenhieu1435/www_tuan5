@@ -3,12 +3,12 @@ package vn.edu.iuh.fit.services;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import vn.edu.iuh.fit.enums.SkillLevel;
-import vn.edu.iuh.fit.model.Candidate;
-import vn.edu.iuh.fit.model.CandidateSkill;
-import vn.edu.iuh.fit.model.Skill;
+import vn.edu.iuh.fit.backend.enums.SkillLevel;
+import vn.edu.iuh.fit.backend.model.Candidate;
+import vn.edu.iuh.fit.backend.model.CandidateSkill;
+import vn.edu.iuh.fit.backend.model.Skill;
+import vn.edu.iuh.fit.backend.services.CandidateSkillService;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class CandidateSkillServiceTest {
     @Autowired

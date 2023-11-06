@@ -1,0 +1,76 @@
+
+    <nav th:fragment="navbar" class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active mr-3">
+                    <a href="/"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Home</a>
+                </li>
+                <li class="nav-item active mr-3">
+                    <a th:if="${session != null && session.companyLogin != null}" href="/companys/openPostJob"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Đăng tin tuyển người</a>
+                </li>
+
+                <li class="nav-item active mr-3">
+                    <a th:if="${session != null && session.companyLogin != null}" href="/jobs/getAllByCompany"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Xem d/sách Job của Company</a>
+                </li>
+
+                <li class="nav-item active mr-3">
+                    <a th:if="${session != null && session.companyLogin != null}"
+                       href="/candidates/findCadidateMatchWithJobsOfCompany"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Tìm các ứng viên có
+                        skill phù hợp</a>
+                </li>
+                <li class="nav-item active mr-3"
+                >
+                    <a th:if="${session != null && session.candidateLogin != null}"
+                       href="/jobs/findJobMatchWithMe"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Xem công
+                        việc có skill phù hợp với mình</a>
+                </li>
+                <li class="nav-item active mr-3"
+                >
+                    <a th:if="${session != null && session.candidateLogin != null}" href="/candidate_skills/getListByCandidateLogin"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Xem candidate_skill của mình</a>
+                </li>
+                <li class="nav-item active mr-3" >
+                    <a th:if="${session != null && session.candidateLogin != null}" href="/skills/findSkillShouldLearn"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Đề xuất skill
+                        cho ứng viên</a>
+                </li>
+                <li class="nav-item active mr-3">
+                    <a
+                            th:if="${session != null && (session.companyLogin != null || session.candidateLogin != null)}"
+                            th:href="@{/skills/openAddForm}"
+                       class="btn btn-outline-success my-2 my-sm-0 nav-link"
+                    >Insert New Skill</a>
+                </li>
+            </ul>
+            <div>
+                <a class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                   th:if="${session != null && (session.companyLogin != null || session.candidateLogin != null)}"
+                   th:href="@{/logout}"
+                >Logout</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                   th:if="${session.companyLogin == null && session.candidateLogin == null}"
+                   th:href="@{/open-sign-in}"
+                >Login</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                   th:if="${session == null || (session.companyLogin == null && session.candidateLogin == null)}"
+                   th:href="@{/companys/sign-up}"
+                >Sign Up as Company</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                   th:if="${session == null || (session.companyLogin == null && session.candidateLogin == null)}"
+                   th:href="@{/candidates/sign-up}"
+                >Sign Up as Candidate</a>
+            </div>
+        </div>
+    </nav>

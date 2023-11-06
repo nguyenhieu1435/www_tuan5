@@ -4,9 +4,9 @@ import com.neovisionaries.i18n.CountryCode;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import vn.edu.iuh.fit.model.Address;
+import vn.edu.iuh.fit.backend.model.Address;
+import vn.edu.iuh.fit.backend.services.AddressService;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class AddressServiceTest {
     @Autowired
